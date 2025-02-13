@@ -21,6 +21,9 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <title>Acme Store Admin Panel</title>
+      </head>
       <body className={hydrated ? inter.className : ""}>
         <Header />
         <main>{children}</main>

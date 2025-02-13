@@ -136,7 +136,7 @@ export default function AddProduct({
               rows={5}
             />
           </div>
-          <ImageSelect onChange={(value) => setImages(value)} />
+          <ImageSelect value={images} onChange={(value) => setImages(value)} />
         </div>
         <div className="flex justify-end gap-2">
           <Button variant="outline">Cancel</Button>

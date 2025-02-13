@@ -47,7 +47,7 @@ export default function AddProduct({
   const [name, setName] = useState(product?.name || "");
   const [price, setPrice] = useState(product?.price || 0);
   const [description, setDescription] = useState(product?.description || "");
-  const [category, setCategory] = useState(product?.category || "");
+  const [category, setCategory] = useState(product?.category || "all");
 
   const [images, setImages] = useState<string[]>(
     product?.images.map((i) => i.url) || []

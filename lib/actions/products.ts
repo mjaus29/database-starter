@@ -12,7 +12,7 @@ interface CreateProductInput {
   images?: string[];
 }
 
-export async function createProduct(product: CreateProductInput) {
+async function createProduct(product: CreateProductInput) {
   try {
     const newProduct = await prisma.product.create({
       data: {
@@ -47,12 +47,12 @@ async function _getProductById(id: number) {
   }
 }
 
-export const getProductById = cache(_getProductById, ["getProductById"], {
+const getProductById = cache(_getProductById, ["getProductById"], {
   tags: ["Product"],
   revalidate: 60,
 });
 
-export async function updateProduct(id: number, product: CreateProductInput) {
+async function updateProduct(id: number, product: CreateProductInput) {
   try {
     const updatedProduct = await prisma.product.update({
       where: { id },
@@ -75,7 +75,7 @@ export async function updateProduct(id: number, product: CreateProductInput) {
   }
 }
 
-export async function deleteProduct(id: number) {
+async function deleteProduct(id: number) {
   try {
     await prisma.product.delete({
       where: { id },
@@ -88,7 +88,7 @@ export async function deleteProduct(id: number) {
   }
 }
 
-export async function getProducts({
+async function getProducts({
   page = 1,
   name,
   minPrice,
@@ -140,3 +140,11 @@ export async function getProducts({
     return [];
   }
 }
+
+export {
+  createProduct,
+  updateProduct,
+  deleteProduct,
+  getProductById,
+  getProducts,
+};

@@ -50,7 +50,7 @@ export default function AddProduct({
   const [category, setCategory] = useState(product?.category || "all");
 
   const [images, setImages] = useState<string[]>(
-    product?.images.map((i) => i.url) || []
+    product?.images?.map((i) => i.url) ?? []
   );
 
   const handleSubmit = async (e: FormEvent) => {
@@ -136,7 +136,7 @@ export default function AddProduct({
               rows={5}
             />
           </div>
-          <ImageSelect onChange={(value) => setImages(value)} />
+          <ImageSelect onChange={(value) => setImages([...value])} />
         </div>
         <div className="flex justify-end gap-2">
           <Button variant="outline">Cancel</Button>

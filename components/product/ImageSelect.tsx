@@ -57,7 +57,12 @@ export default function ImageSelect({
             </Button>
           </div>
         ))}
-        <Button size="icon" variant="outline" onClick={handleAddImage}>
+        <Button
+          type="button"
+          size="icon"
+          variant="outline"
+          onClick={handleAddImage}
+        >
           <PlusIcon className="h-4 w-4" />
         </Button>
       </div>
